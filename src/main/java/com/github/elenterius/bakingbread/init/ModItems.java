@@ -15,7 +15,14 @@ public final class ModItems {
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BakingBreadMod.MOD_ID);
 
-	public static final RegistryObject<BlockItem> EXAMPLE_BLOCK_ITEM = registerBlockItem(ModBlocks.EXAMPLE_BLOCK, BlockItem::new);
+	public static final RegistryObject<Item> FLOUR = registerItem("flour");
+	public static final RegistryObject<Item> DOUGH = registerItem("dough");
+	public static final RegistryObject<Item> SOURDOUGH_STARTER = registerItem("sourdough_starter");
+	public static final RegistryObject<Item> LOAF = registerItem("loaf");
+	public static final RegistryObject<Item> TIN_LOAF = registerItem("tin_loaf");
+	public static final RegistryObject<Item> ROLL = registerItem("roll");
+
+	public static final RegistryObject<BlockItem> GLASS_JAR = registerBlockItem(ModBlocks.GLASS_JAR);
 
 	private ModItems() {
 	}
@@ -34,6 +41,10 @@ public final class ModItems {
 
 	private static RegistryObject<Item> registerItem(String name, Rarity rarity) {
 		return ITEMS.register(name, () -> new Item(createProperties().rarity(rarity)));
+	}
+
+	private static <T extends Block> RegistryObject<BlockItem> registerBlockItem(RegistryObject<T> blockHolder) {
+		return registerBlockItem(blockHolder, BlockItem::new);
 	}
 
 	private static <T extends Block, I extends BlockItem> RegistryObject<I> registerBlockItem(RegistryObject<T> blockHolder, Function<T, I> factory) {

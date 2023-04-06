@@ -20,7 +20,7 @@ public final class BakingBreadMod {
 	public static final CreativeModeTab CREATIVE_TAB = new CreativeModeTab(MOD_ID) {
 		@Override
 		public ItemStack makeIcon() {
-			return new ItemStack(ModItems.EXAMPLE_BLOCK_ITEM.get());
+			return new ItemStack(ModItems.GLASS_JAR.get());
 		}
 	};
 

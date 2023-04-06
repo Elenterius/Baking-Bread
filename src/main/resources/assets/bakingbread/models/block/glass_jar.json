@@ -1,0 +1,309 @@
+{
+  "credit" : "Made by Elenterius",
+  "textures" : {
+    "1" : "bakingbread:block/glass_jar_side",
+    "2" : "bakingbread:block/glass_jar_top",
+    "3" : "bakingbread:block/glass_jar_bottom",
+    "4" : "block/oak_planks",
+    "5" : "bakingbread:block/sourdough_side",
+    "6" : "bakingbread:block/sourdough_top",
+    "7" : "bakingbread:block/sourdough_bottom",
+    "particle" : "bakingbread:block/glass_jar_side"
+  },
+  "elements" : [
+    {
+      "name" : "body",
+      "from" : [
+        1,
+        0,
+        1
+      ],
+      "to" : [
+        15,
+        14,
+        15
+      ],
+      "faces" : {
+        "north" : {
+          "uv" : [
+            1,
+            2,
+            15,
+            16
+          ],
+          "texture" : "#1"
+        },
+        "east" : {
+          "uv" : [
+            1,
+            2,
+            15,
+            16
+          ],
+          "texture" : "#1"
+        },
+        "south" : {
+          "uv" : [
+            1,
+            2,
+            15,
+            16
+          ],
+          "texture" : "#1"
+        },
+        "west" : {
+          "uv" : [
+            1,
+            2,
+            15,
+            16
+          ],
+          "texture" : "#1"
+        },
+        "up" : {
+          "uv" : [
+            1,
+            1,
+            15,
+            15
+          ],
+          "texture" : "#2"
+        },
+        "down" : {
+          "uv" : [
+            1,
+            1,
+            15,
+            15
+          ],
+          "texture" : "#3"
+        }
+      }
+    },
+    {
+      "name" : "neck",
+      "from" : [
+        2,
+        14,
+        2
+      ],
+      "to" : [
+        14,
+        16,
+        14
+      ],
+      "faces" : {
+        "north" : {
+          "uv" : [
+            2,
+            0,
+            14,
+            2
+          ],
+          "texture" : "#1"
+        },
+        "east" : {
+          "uv" : [
+            2,
+            0,
+            14,
+            2
+          ],
+          "texture" : "#1"
+        },
+        "south" : {
+          "uv" : [
+            2,
+            0,
+            14,
+            2
+          ],
+          "texture" : "#1"
+        },
+        "west" : {
+          "uv" : [
+            2,
+            0,
+            14,
+            2
+          ],
+          "texture" : "#1"
+        }
+      }
+    },
+    {
+      "name" : "lid",
+      "from" : [
+        1,
+        16,
+        1
+      ],
+      "to" : [
+        15,
+        17,
+        15
+      ],
+      "faces" : {
+        "north" : {
+          "uv" : [
+            1,
+            0,
+            15,
+            1
+          ],
+          "texture" : "#4"
+        },
+        "east" : {
+          "uv" : [
+            0,
+            1,
+            1,
+            15
+          ],
+          "rotation" : 90,
+          "texture" : "#4"
+        },
+        "south" : {
+          "uv" : [
+            1,
+            15,
+            15,
+            16
+          ],
+          "texture" : "#4"
+        },
+        "west" : {
+          "uv" : [
+            15,
+            1,
+            16,
+            15
+          ],
+          "rotation" : 90,
+          "texture" : "#4"
+        },
+        "up" : {
+          "uv" : [
+            1,
+            1,
+            15,
+            15
+          ],
+          "texture" : "#4"
+        },
+        "down" : {
+          "uv" : [
+            1,
+            1,
+            15,
+            15
+          ],
+          "texture" : "#4"
+        }
+      }
+    },
+    {
+      "name" : "contents",
+      "from" : [
+        2,
+        1,
+        2
+      ],
+      "to" : [
+        14,
+        13,
+        14
+      ],
+      "faces" : {
+        "north" : {
+          "uv" : [
+            2,
+            4,
+            14,
+            16
+          ],
+          "texture" : "#5",
+          "tintindex" : 0
+        },
+        "east" : {
+          "uv" : [
+            2,
+            4,
+            14,
+            16
+          ],
+          "texture" : "#5",
+          "tintindex" : 0
+        },
+        "south" : {
+          "uv" : [
+            2,
+            4,
+            14,
+            16
+          ],
+          "texture" : "#5",
+          "tintindex" : 0
+        },
+        "west" : {
+          "uv" : [
+            2,
+            4,
+            14,
+            16
+          ],
+          "texture" : "#5",
+          "tintindex" : 0
+        },
+        "up" : {
+          "uv" : [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture" : "#6",
+          "tintindex" : 0
+        },
+        "down" : {
+          "uv" : [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture" : "#7",
+          "tintindex" : 0
+        }
+      }
+    }
+  ],
+  "groups" : [
+    {
+      "name" : "jar",
+      "origin" : [
+        8,
+        8,
+        8
+      ],
+      "color" : 0,
+      "children" : [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name" : "contents",
+      "origin" : [
+        8,
+        8,
+        8
+      ],
+      "color" : 0,
+      "children" : [
+        3
+      ]
+    }
+  ]
+}
