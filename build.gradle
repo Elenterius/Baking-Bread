@@ -140,6 +140,9 @@ configurations {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
+    minecraftLibrary 'com.scrtwpns:mixbox:2.0.0'
+    //TODO: https://github.com/MinecraftForge/ForgeGradle/wiki/Dependencies#jar-in-jar
+
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
@@ -150,6 +153,8 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:flywheel-486392:4174759") //1.19.2-0.6.8
 
     //runtimeOnly fg.deobf("curse.maven:farmers_delight-398521:3999157")
+    runtimeOnly fg.deobf("curse.maven:simple_farming-327554:4406938") //1.19.2-2.0.4
+    //runtimeOnly fg.deobf("curse.maven:pamhc2crops-361385:4465074")
 
     datagenImplementation sourceSets.main.output
 }
