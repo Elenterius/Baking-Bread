@@ -2,6 +2,7 @@ package com.github.elenterius.bakingbread;
 
 import com.github.elenterius.bakingbread.init.ModBlocks;
 import com.github.elenterius.bakingbread.init.ModItems;
+import com.github.elenterius.bakingbread.init.ModRecipeSerializers;
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -29,6 +30,7 @@ public final class BakingBreadMod {
 
 		ModBlocks.BLOCKS.register(modEventBus);
 		ModItems.ITEMS.register(modEventBus);
+		ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
 	}
 
 	public static ResourceLocation createRL(String path) {
