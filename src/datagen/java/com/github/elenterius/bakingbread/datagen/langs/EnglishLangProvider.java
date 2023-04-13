@@ -21,13 +21,7 @@ public class EnglishLangProvider extends LanguageProvider {
 
 	@Override
 	protected void addTranslations() {
-		addItem(ModItems.DOUGH, "Dough");
-		addItem(ModItems.SOURDOUGH_STARTER, "Sourdough Starter");
-		addItem(ModItems.WILD_YEAST_STARTER, "Wild Yeast Starter");
-		addItem(ModItems.OVAL_LOAF, "Oval Loaf");
-		addItem(ModItems.TIN_LOAF, "Tin Loaf");
-		addItem(ModItems.WAND_LOAF, "Baton / Baguette");
-		addItem(ModItems.ROLL, "Roll");
+		ModItems.findItems(FlourItem.class).forEach(this::addGrain);
 
 		addItem(ModItems.WHEAT_FLOUR, "Wheat Flour");
 		addItem(ModItems.RYE_FLOUR, "Rye Flour");
@@ -43,7 +37,18 @@ public class EnglishLangProvider extends LanguageProvider {
 		addItem(ModItems.BUCKWHEAT_FLOUR, "Buckwheat Flour");
 		addItem(ModItems.QUINOA_FLOUR, "Quinoa Flour");
 
-		ModItems.findItems(FlourItem.class).forEach(this::addGrain);
+		addItem(ModItems.SOURDOUGH_STARTER, "Sourdough Starter");
+		addItem(ModItems.WILD_YEAST_STARTER, "Wild Yeast Starter");
+
+		addItem(ModItems.DOUGH, "Dough");
+		addItem(ModItems.OVAL_DOUGH_SHAPE, "Oval Shaped Dough");
+		addItem(ModItems.TIN_DOUGH_SHAPE, "Tin Shaped Dough");
+		addItem(ModItems.BATON_DOUGH_SHAPE, "Baton Shaped Dough");
+		addItem(ModItems.ROLL_DOUGH_SHAPE, "Roll Shaped Dough");
+
+		addItem(ModItems.BREAD_OVAL, "Oval Bread");
+		addItem(ModItems.BREAD_BATON, "Baton Bread");
+		addItem(ModItems.BREAD_ROLL, "Bread Roll");
 	}
 
 	protected void addGrain(FlourItem item) {

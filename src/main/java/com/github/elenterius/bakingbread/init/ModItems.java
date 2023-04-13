@@ -2,6 +2,7 @@ package com.github.elenterius.bakingbread.init;
 
 import com.github.elenterius.bakingbread.BakingBreadMod;
 import com.github.elenterius.bakingbread.api.Grains;
+import com.github.elenterius.bakingbread.item.BreadItem;
 import com.github.elenterius.bakingbread.item.DoughItem;
 import com.github.elenterius.bakingbread.item.FlourItem;
 import java.util.function.Function;
@@ -34,13 +35,18 @@ public final class ModItems {
 	public static final RegistryObject<FlourItem> BUCKWHEAT_FLOUR = registerItem("buckwheat_flour", props -> new FlourItem(props, Grains.BUCKWHEAT));
 	public static final RegistryObject<FlourItem> QUINOA_FLOUR = registerItem("quinoa_flour", props -> new FlourItem(props, Grains.QUINOA));
 
-	public static final RegistryObject<DoughItem> DOUGH = registerItem("dough", DoughItem::new);
 	public static final RegistryObject<Item> SOURDOUGH_STARTER = registerItem("sourdough_starter");
 	public static final RegistryObject<Item> WILD_YEAST_STARTER = registerItem("wild_yeast_starter");
-	public static final RegistryObject<Item> OVAL_LOAF = registerItem("oval_loaf");
-	public static final RegistryObject<Item> TIN_LOAF = registerItem("tin_loaf");
-	public static final RegistryObject<Item> WAND_LOAF = registerItem("wand_loaf");
-	public static final RegistryObject<Item> ROLL = registerItem("roll");
+
+	public static final RegistryObject<DoughItem> DOUGH = registerItem("dough", DoughItem::new);
+	public static final RegistryObject<DoughItem> OVAL_DOUGH_SHAPE = registerItem("oval_dough_shape", DoughItem::new);
+	public static final RegistryObject<DoughItem> TIN_DOUGH_SHAPE = registerItem("tin_dough_shape", DoughItem::new);
+	public static final RegistryObject<DoughItem> BATON_DOUGH_SHAPE = registerItem("baton_dough_shape", DoughItem::new);
+	public static final RegistryObject<DoughItem> ROLL_DOUGH_SHAPE = registerItem("roll_dough_shape", DoughItem::new);
+
+	public static final RegistryObject<BreadItem> BREAD_OVAL = registerItem("bread_oval", props -> new BreadItem(props.food(ModFoods.OVAL_BREAD)));
+	public static final RegistryObject<BreadItem> BREAD_BATON = registerItem("bread_baton", props -> new BreadItem(props.food(ModFoods.BATON_BREAD)));
+	public static final RegistryObject<BreadItem> BREAD_ROLL = registerItem("bread_roll", props -> new BreadItem(props.food(ModFoods.ROLL)));
 
 	public static final RegistryObject<BlockItem> GLASS_JAR = registerBlockItem(ModBlocks.GLASS_JAR);
 

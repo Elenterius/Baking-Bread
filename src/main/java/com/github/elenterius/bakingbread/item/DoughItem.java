@@ -2,6 +2,7 @@ package com.github.elenterius.bakingbread.item;
 
 import com.github.elenterius.bakingbread.api.IGrain;
 import com.github.elenterius.bakingbread.init.ModItems;
+import com.github.elenterius.bakingbread.item.ITintColorHolder.TintedItem;
 import com.github.elenterius.bakingbread.util.ColorUtil;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -9,20 +10,10 @@ import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class DoughItem extends Item {
-
-	protected static final String COLOR_TAG = "Color";
+public class DoughItem extends Item implements TintedItem {
 
 	public DoughItem(Properties properties) {
 		super(properties);
-	}
-
-	public int getTintColor(ItemStack stack) {
-		return stack.getOrCreateTag().getInt(COLOR_TAG);
-	}
-
-	public void setTintColor(ItemStack stack, int color) {
-		stack.getOrCreateTag().putInt(COLOR_TAG, color);
 	}
 
 	public static ItemStack create(List<IGrain> flours, List<ItemStack> ingredients) {
