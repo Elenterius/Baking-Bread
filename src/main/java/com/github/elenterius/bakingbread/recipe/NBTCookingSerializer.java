@@ -59,7 +59,7 @@ public class NBTCookingSerializer<T extends NBTCookingRecipe> implements RecipeS
 	public void toNetwork(FriendlyByteBuf buffer, T recipe) {
 		buffer.writeUtf(recipe.getGroup());
 		recipe.getIngredient().toNetwork(buffer);
-		buffer.writeItem(recipe.getResultRaw());
+		buffer.writeItem(recipe.getResultItem());
 		buffer.writeFloat(recipe.getExperience());
 		buffer.writeVarInt(recipe.getCookingTime());
 	}

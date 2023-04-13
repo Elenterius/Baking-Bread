@@ -1,6 +1,5 @@
 package com.github.elenterius.bakingbread.recipe;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
@@ -22,37 +21,15 @@ public abstract class NBTCookingRecipe extends AbstractCookingRecipe {
 
 	@Override
 	public ItemStack assemble(Container container) {
-		ItemStack ingredient = container.getItem(0);
-		ItemStack copy = result.copy();
-		copyNBT(ingredient.getOrCreateTag(), result.getOrCreateTag());
-		return copy;
+		ItemStack assembledResult = getResultItem().copy();
+		applyNBT(container.getItem(0), assembledResult);
+		return assembledResult;
 	}
 
-	public abstract void copyNBT(CompoundTag ingredientTag, CompoundTag resultTag);
-
-	@Override
-	public ItemStack getResultItem() {
-		return ItemStack.EMPTY;
-	}
-
-	public ItemStack getResultRaw() {
-		return result;
-	}
+	public abstract void applyNBT(ItemStack ingredient, ItemStack assembledResult);
 
 	public Ingredient getIngredient() {
 		return ingredient;
-	}
-
-	public abstract class Campfire extends NBTCookingRecipe {
-
-		protected Campfire(ResourceLocation id, String group, Ingredient ingredient, ItemStack result, float experience, int cookingTime) {
-			super(RecipeType.CAMPFIRE_COOKING, id, group, ingredient, result, experience, cookingTime);
-		}
-
-		@Override
-		public ItemStack getToastSymbol() {
-			return new ItemStack(Blocks.CAMPFIRE);
-		}
 	}
 
 	public abstract static class Smelting extends NBTCookingRecipe {
@@ -88,6 +65,18 @@ public abstract class NBTCookingRecipe extends AbstractCookingRecipe {
 		@Override
 		public ItemStack getToastSymbol() {
 			return new ItemStack(Blocks.BLAST_FURNACE);
+		}
+	}
+
+	public abstract class Campfire extends NBTCookingRecipe {
+
+		protected Campfire(ResourceLocation id, String group, Ingredient ingredient, ItemStack result, float experience, int cookingTime) {
+			super(RecipeType.CAMPFIRE_COOKING, id, group, ingredient, result, experience, cookingTime);
+		}
+
+		@Override
+		public ItemStack getToastSymbol() {
+			return new ItemStack(Blocks.CAMPFIRE);
 		}
 	}
 }
