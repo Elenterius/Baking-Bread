@@ -7,6 +7,7 @@ import com.github.elenterius.bakingbread.datagen.tags.ModItemTagsProvider;
 import com.github.elenterius.bakingbread.init.ModItems;
 import com.github.elenterius.bakingbread.init.ModRecipeSerializers;
 import com.github.elenterius.bakingbread.item.FlourItem;
+import com.github.elenterius.bakingbread.recipe.BakeryRecipes;
 import java.util.Arrays;
 import java.util.function.Consumer;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -98,20 +99,38 @@ public class ModRecipeProvider extends RecipeProvider {
 //			.save(consumer, getBlastingRecipeId(Items.GLASS_PANE));
 
 		NBTCookingRecipeBuilder
-			.cooking(Ingredient.of(ModItems.DOUGH.get()), ModItems.OVAL_LOAF.get(), 0.01F, 100, ModRecipeSerializers.BREAD_BAKING.get())
-			.save(consumer, BakingBreadMod.createRL("bread_baking"));
+			.cooking(Ingredient.of(ModItems.ROLL_DOUGH_SHAPE.get()), ModItems.BREAD_ROLL.get(), 0.01F, 100, ModRecipeSerializers.BREAD_BAKING.get())
+			.save(consumer, BakingBreadMod.createRL("bread_roll_baking"));
+
+		NBTCookingRecipeBuilder
+			.cooking(Ingredient.of(ModItems.OVAL_DOUGH_SHAPE.get()), ModItems.BREAD_OVAL.get(), 0.01F * 5, 100 * 5, ModRecipeSerializers.BREAD_BAKING.get())
+			.save(consumer, BakingBreadMod.createRL("oval_bread_baking"));
+
+		NBTCookingRecipeBuilder
+			.cooking(Ingredient.of(ModItems.BATON_DOUGH_SHAPE.get()), ModItems.BREAD_BATON.get(), 0.01F * 5, 100 * 5, ModRecipeSerializers.BREAD_BAKING.get())
+			.save(consumer, BakingBreadMod.createRL("baton_bread_baking"));
 	}
 
 	private void registerWorkbenchRecipes(Consumer<FinishedRecipe> consumer) {
 		ModItems.findItems(FlourItem.class).forEach(item -> grainToFlourRecipe(item, consumer));
 		SpecialRecipeBuilder.special(ModRecipeSerializers.DOUGH.get()).save(consumer, BakingBreadMod.createRL("dough").toString());
 
-//		WorkbenchRecipeBuilder.shaped(ModItems.BONE_CLEAVER.get())
-//			.define('B', Tags.Items.BONES).define('F', Items.FLINT)
-//			.pattern(" FB")
-//			.pattern("FB ")
-//			.pattern("B  ")
-//			.unlockedBy(hasName(Items.BONE), has(Tags.Items.BONES)).save(consumer);
+		WorkbenchRecipeBuilder.shapedDough(ModItems.OVAL_DOUGH_SHAPE.get(), 4)
+			.define('D', ModItems.DOUGH.get())
+			.pattern(" D ")
+			.pattern("DDD")
+			.unlockedBy(hasName(ModItems.DOUGH.get()), has(ModItems.DOUGH.get())).save(consumer);
+
+		WorkbenchRecipeBuilder.shapedDough(ModItems.BATON_DOUGH_SHAPE.get(), 2)
+			.define('D', ModItems.DOUGH.get())
+			.pattern(" D")
+			.pattern("D ")
+			.unlockedBy(hasName(ModItems.DOUGH.get()), has(ModItems.DOUGH.get())).save(consumer);
+
+		WorkbenchRecipeBuilder.shapedDough(ModItems.ROLL_DOUGH_SHAPE.get(), 5)
+			.define('D', ModItems.DOUGH.get())
+			.pattern("D ")
+			.unlockedBy(hasName(ModItems.DOUGH.get()), has(ModItems.DOUGH.get())).save(consumer);
 	}
 
 	protected void grainToFlourRecipe(FlourItem item, Consumer<FinishedRecipe> consumer) {
@@ -131,6 +150,14 @@ public class ModRecipeProvider extends RecipeProvider {
 	static final class WorkbenchRecipeBuilder {
 
 		private WorkbenchRecipeBuilder() {
+		}
+
+		public static NBTShapedRecipeBuilder<BakeryRecipes.DoughKneading> shapedDough(ItemLike result) {
+			return NBTShapedRecipeBuilder.shaped(result, ModRecipeSerializers.SHAPED_DOUGH.get());
+		}
+
+		public static NBTShapedRecipeBuilder<BakeryRecipes.DoughKneading> shapedDough(ItemLike result, int count) {
+			return NBTShapedRecipeBuilder.shaped(result, count, ModRecipeSerializers.SHAPED_DOUGH.get());
 		}
 
 		public static ShapedRecipeBuilder shaped(ItemLike result) {
