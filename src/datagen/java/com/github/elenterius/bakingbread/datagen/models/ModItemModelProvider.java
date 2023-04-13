@@ -2,6 +2,7 @@ package com.github.elenterius.bakingbread.datagen.models;
 
 import com.github.elenterius.bakingbread.BakingBreadMod;
 import com.github.elenterius.bakingbread.init.ModItems;
+import com.github.elenterius.bakingbread.item.FlourItem;
 import java.util.Objects;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -24,23 +25,26 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 	@Override
 	protected void registerModels() {
-		basicItem(ModItems.FLOUR);
 		basicItem(ModItems.DOUGH);
 		basicItem(ModItems.SOURDOUGH_STARTER);
-		basicItem(ModItems.LOAF);
+		basicItem(ModItems.WILD_YEAST_STARTER);
+		basicItem(ModItems.OVAL_LOAF);
 		basicItem(ModItems.TIN_LOAF);
+		basicItem(ModItems.WAND_LOAF);
 		basicItem(ModItems.ROLL);
+
+		ModItems.findEntries(FlourItem.class).forEach(this::flourItem);
 	}
 
-	private ResourceLocation id(Item item) {
+	private <T extends Item> ResourceLocation id(T item) {
 		return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
 	}
 
-	protected ItemModelBuilder basicItem(RegistryObject<Item> registryObject) {
+	protected <T extends Item> ItemModelBuilder basicItem(RegistryObject<T> registryObject) {
 		return basicItem(registryObject.getId());
 	}
 
-	protected ItemModelBuilder basicItem(RegistryObject<Item> registryObject, String subFolder) {
+	protected <T extends Item> ItemModelBuilder basicItem(RegistryObject<T> registryObject, String subFolder) {
 		return basicItem(registryObject.getId(), subFolder);
 	}
 
@@ -50,11 +54,11 @@ public class ModItemModelProvider extends ItemModelProvider {
 			.texture(LAYER_0_TEXTURE, new ResourceLocation(item.getNamespace(), ITEM_FOLDER + "/" + subFolder + "/" + item.getPath()));
 	}
 
-	protected ItemModelBuilder overlayItem(Item item) {
+	protected <T extends Item> ItemModelBuilder overlayItem(T item) {
 		return overlayItem(id(item));
 	}
 
-	protected ItemModelBuilder overlayItem(RegistryObject<Item> registryObject) {
+	protected <T extends Item> ItemModelBuilder overlayItem(RegistryObject<T> registryObject) {
 		return overlayItem(registryObject.getId());
 	}
 
@@ -62,4 +66,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 		return basicItem(item).texture(LAYER_1_TEXTURE, new ResourceLocation(item.getNamespace(), ITEM_FOLDER + "/" + item.getPath() + "_overlay"));
 	}
 
+	protected ItemModelBuilder flourItem(RegistryObject<? extends FlourItem> registryObject) {
+		FlourItem item = registryObject.get();
+		return getBuilder(item.toString())
+			.parent(new ModelFile.UncheckedModelFile("item/generated"))
+			.texture(LAYER_0_TEXTURE, new ResourceLocation(registryObject.getId().getNamespace(), ITEM_FOLDER + "/flour"));
+	}
 }

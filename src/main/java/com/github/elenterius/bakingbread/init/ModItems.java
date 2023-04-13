@@ -1,7 +1,11 @@
 package com.github.elenterius.bakingbread.init;
 
 import com.github.elenterius.bakingbread.BakingBreadMod;
+import com.github.elenterius.bakingbread.api.Grains;
+import com.github.elenterius.bakingbread.item.DoughItem;
+import com.github.elenterius.bakingbread.item.FlourItem;
 import java.util.function.Function;
+import java.util.stream.Stream;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
@@ -15,16 +19,46 @@ public final class ModItems {
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BakingBreadMod.MOD_ID);
 
-	public static final RegistryObject<Item> FLOUR = registerItem("flour");
-	public static final RegistryObject<Item> DOUGH = registerItem("dough");
+	//bread cereals
+	public static final RegistryObject<FlourItem> WHEAT_FLOUR = registerItem("wheat_flour", props -> new FlourItem(props, Grains.WHEAT));
+	public static final RegistryObject<FlourItem> RYE_FLOUR = registerItem("rye_flour", props -> new FlourItem(props, Grains.RYE));
+	public static final RegistryObject<FlourItem> SPELT_FLOUR = registerItem("spelt_flour", props -> new FlourItem(props, Grains.SPELT));
+	public static final RegistryObject<FlourItem> EMMER_FLOUR = registerItem("emmer_flour", props -> new FlourItem(props, Grains.EMMER));
+	public static final RegistryObject<FlourItem> EINKORN_FLOUR = registerItem("einkorn_flour", props -> new FlourItem(props, Grains.EINKORN));
+	public static final RegistryObject<FlourItem> BARLEY_FLOUR = registerItem("barley_flour", props -> new FlourItem(props, Grains.BARLEY));
+	public static final RegistryObject<FlourItem> OAT_FLOUR = registerItem("oat_flour", props -> new FlourItem(props, Grains.OAT));
+	public static final RegistryObject<FlourItem> MILLET_FLOUR = registerItem("millet_flour", props -> new FlourItem(props, Grains.MILLET));
+	public static final RegistryObject<FlourItem> MAIZE_FLOUR = registerItem("maize_flour", props -> new FlourItem(props, Grains.MAIZE));
+	public static final RegistryObject<FlourItem> RICE_FLOUR = registerItem("rice_flour", props -> new FlourItem(props, Grains.RICE));
+	public static final RegistryObject<FlourItem> AMARANTH_FLOUR = registerItem("amaranth_flour", props -> new FlourItem(props, Grains.AMARANTH));
+	public static final RegistryObject<FlourItem> BUCKWHEAT_FLOUR = registerItem("buckwheat_flour", props -> new FlourItem(props, Grains.BUCKWHEAT));
+	public static final RegistryObject<FlourItem> QUINOA_FLOUR = registerItem("quinoa_flour", props -> new FlourItem(props, Grains.QUINOA));
+
+	public static final RegistryObject<DoughItem> DOUGH = registerItem("dough", DoughItem::new);
 	public static final RegistryObject<Item> SOURDOUGH_STARTER = registerItem("sourdough_starter");
-	public static final RegistryObject<Item> LOAF = registerItem("loaf");
+	public static final RegistryObject<Item> WILD_YEAST_STARTER = registerItem("wild_yeast_starter");
+	public static final RegistryObject<Item> OVAL_LOAF = registerItem("oval_loaf");
 	public static final RegistryObject<Item> TIN_LOAF = registerItem("tin_loaf");
+	public static final RegistryObject<Item> WAND_LOAF = registerItem("wand_loaf");
 	public static final RegistryObject<Item> ROLL = registerItem("roll");
 
 	public static final RegistryObject<BlockItem> GLASS_JAR = registerBlockItem(ModBlocks.GLASS_JAR);
 
 	private ModItems() {
+	}
+
+	public static <T extends Item> Stream<T> findItems(Class<T> clazz) {
+		return ModItems.ITEMS.getEntries().stream()
+			.map(RegistryObject::get)
+			.filter(clazz::isInstance)
+			.map(clazz::cast);
+	}
+
+	public static <T extends Item> Stream<RegistryObject<T>> findEntries(Class<T> clazz) {
+		//noinspection unchecked
+		return ModItems.ITEMS.getEntries().stream()
+			.filter(registryObject -> clazz.isInstance(registryObject.get()))
+			.map(registryObject -> (RegistryObject<T>) registryObject);
 	}
 
 	private static Item.Properties createProperties() {
