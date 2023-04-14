@@ -56,7 +56,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 	}
 
 	protected <T extends Item> ItemModelBuilder bakedLoafItem(RegistryObject<T> registryObject, LoafShape shape) {
-		return rawLoafItem(registryObject.getId(), shape);
+		return bakedLoafItem(registryObject.getId(), shape);
 	}
 
 	protected ItemModelBuilder bakedLoafItem(ResourceLocation item, LoafShape shape) {
