@@ -1,6 +1,7 @@
 package com.github.elenterius.bakingbread.init;
 
 import com.github.elenterius.bakingbread.BakingBreadMod;
+import com.github.elenterius.bakingbread.block.GlassJarBlock;
 import com.github.elenterius.bakingbread.item.BreadItem;
 import com.github.elenterius.bakingbread.item.DoughItem;
 import com.github.elenterius.bakingbread.item.FlourItem;
@@ -32,4 +33,8 @@ public final class ClientSetupHandler {
 		event.register((stack, tintIndex) -> tintIndex == 0 ? ITintColorHolder.getColor(stack) : 0xFF_FFFFFF, ModItems.findItems(BreadItem.class).toArray(BreadItem[]::new));
 	}
 
+	@SubscribeEvent
+	public static void onRegisterItemColor(final RegisterColorHandlersEvent.Block event) {
+		event.register((state, level, pos, tintIndex) -> tintIndex == 0 ? GlassJarBlock.getTintColor(state, level, pos) : 0xFF_FFFFFF, ModBlocks.GLASS_JAR.get());
+	}
 }

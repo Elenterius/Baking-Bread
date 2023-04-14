@@ -1,0 +1,81 @@
+{
+  "credit" : "Made by Elenterius",
+  "parent" : "block/block",
+  "elements" : [
+    {
+      "name" : "contents",
+      "from" : [
+        2,
+        1,
+        2
+      ],
+      "to" : [
+        14,
+        10,
+        14
+      ],
+      "faces" : {
+        "north" : {
+          "uv" : [
+            2,
+            7,
+            14,
+            16
+          ],
+          "texture" : "#side",
+          "tintindex" : 0
+        },
+        "east" : {
+          "uv" : [
+            2,
+            7,
+            14,
+            16
+          ],
+          "texture" : "#side",
+          "tintindex" : 0
+        },
+        "south" : {
+          "uv" : [
+            2,
+            7,
+            14,
+            16
+          ],
+          "texture" : "#side",
+          "tintindex" : 0
+        },
+        "west" : {
+          "uv" : [
+            2,
+            7,
+            14,
+            16
+          ],
+          "texture" : "#side",
+          "tintindex" : 0
+        },
+        "up" : {
+          "uv" : [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture" : "#up",
+          "tintindex" : 0
+        },
+        "down" : {
+          "uv" : [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture" : "#down",
+          "tintindex" : 0
+        }
+      }
+    }
+  ]
+}

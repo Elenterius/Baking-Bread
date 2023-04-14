@@ -1,18 +1,117 @@
 {
   "credit" : "Made by Elenterius",
   "parent" : "block/block",
-  "render_type" : "cutout",
+  "render_type" : "minecraft:cutout",
   "textures" : {
     "1" : "bakingbread:block/glass_jar_side",
     "2" : "bakingbread:block/glass_jar_top",
     "3" : "bakingbread:block/glass_jar_bottom",
     "4" : "block/oak_planks",
-    "5" : "bakingbread:block/sourdough_side",
-    "6" : "bakingbread:block/sourdough_top",
-    "7" : "bakingbread:block/sourdough_bottom",
     "particle" : "bakingbread:block/glass_jar_side"
   },
   "elements" : [
+    {
+      "name" : "neck",
+      "from" : [
+        2,
+        14,
+        2
+      ],
+      "to" : [
+        14,
+        15,
+        14
+      ],
+      "faces" : {
+        "north" : {
+          "uv" : [
+            2,
+            1,
+            14,
+            2
+          ],
+          "texture" : "#1"
+        },
+        "east" : {
+          "uv" : [
+            2,
+            1,
+            14,
+            2
+          ],
+          "texture" : "#1"
+        },
+        "south" : {
+          "uv" : [
+            2,
+            1,
+            14,
+            2
+          ],
+          "texture" : "#1"
+        },
+        "west" : {
+          "uv" : [
+            2,
+            1,
+            14,
+            2
+          ],
+          "texture" : "#1"
+        }
+      }
+    },
+    {
+      "name" : "neck inverted",
+      "from" : [
+        14,
+        15,
+        14
+      ],
+      "to" : [
+        2,
+        14,
+        2
+      ],
+      "faces" : {
+        "north" : {
+          "uv" : [
+            2,
+            2,
+            14,
+            1
+          ],
+          "texture" : "#1"
+        },
+        "east" : {
+          "uv" : [
+            2,
+            2,
+            14,
+            1
+          ],
+          "texture" : "#1"
+        },
+        "south" : {
+          "uv" : [
+            2,
+            2,
+            14,
+            1
+          ],
+          "texture" : "#1"
+        },
+        "west" : {
+          "uv" : [
+            2,
+            2,
+            14,
+            1
+          ],
+          "texture" : "#1"
+        }
+      }
+    },
     {
       "name" : "body",
       "from" : [
@@ -83,53 +182,71 @@
       }
     },
     {
-      "name" : "neck",
+      "name" : "body inverted",
       "from" : [
-        2,
-        14,
-        2
+        15,
+        14.001,
+        15
       ],
       "to" : [
-        14,
-        15,
-        14
+        1,
+        0.001,
+        1
       ],
       "faces" : {
         "north" : {
           "uv" : [
-            2,
             1,
-            14,
+            16,
+            15,
             2
           ],
           "texture" : "#1"
         },
         "east" : {
           "uv" : [
-            2,
             1,
-            14,
+            16,
+            15,
             2
           ],
           "texture" : "#1"
         },
         "south" : {
           "uv" : [
-            2,
             1,
-            14,
+            16,
+            15,
             2
           ],
           "texture" : "#1"
         },
         "west" : {
           "uv" : [
-            2,
             1,
-            14,
+            16,
+            15,
             2
           ],
           "texture" : "#1"
+        },
+        "up" : {
+          "uv" : [
+            15,
+            1,
+            1,
+            15
+          ],
+          "texture" : "#3"
+        },
+        "down" : {
+          "uv" : [
+            15,
+            1,
+            1,
+            15
+          ],
+          "texture" : "#2"
         }
       }
     },
@@ -203,150 +320,6 @@
           "texture" : "#4"
         }
       }
-    },
-    {
-      "name" : "body inverted",
-      "from" : [
-        15,
-        14,
-        15
-      ],
-      "to" : [
-        1,
-        0,
-        1
-      ],
-      "faces" : {
-        "north" : {
-          "uv" : [
-            1,
-            16,
-            15,
-            2
-          ],
-          "texture" : "#1"
-        },
-        "east" : {
-          "uv" : [
-            1,
-            16,
-            15,
-            2
-          ],
-          "texture" : "#1"
-        },
-        "south" : {
-          "uv" : [
-            1,
-            16,
-            15,
-            2
-          ],
-          "texture" : "#1"
-        },
-        "west" : {
-          "uv" : [
-            1,
-            16,
-            15,
-            2
-          ],
-          "texture" : "#1"
-        },
-        "up" : {
-          "uv" : [
-            15,
-            1,
-            1,
-            15
-          ],
-          "texture" : "#3"
-        },
-        "down" : {
-          "uv" : [
-            15,
-            1,
-            1,
-            15
-          ],
-          "texture" : "#2"
-        }
-      }
-    },
-    {
-      "name" : "contents",
-      "from" : [
-        2,
-        1,
-        2
-      ],
-      "to" : [
-        14,
-        13,
-        14
-      ],
-      "faces" : {
-        "north" : {
-          "uv" : [
-            2,
-            4,
-            14,
-            16
-          ],
-          "texture" : "#5",
-          "tintindex" : 0
-        },
-        "east" : {
-          "uv" : [
-            2,
-            4,
-            14,
-            16
-          ],
-          "texture" : "#5",
-          "tintindex" : 0
-        },
-        "south" : {
-          "uv" : [
-            2,
-            4,
-            14,
-            16
-          ],
-          "texture" : "#5",
-          "tintindex" : 0
-        },
-        "west" : {
-          "uv" : [
-            2,
-            4,
-            14,
-            16
-          ],
-          "texture" : "#5",
-          "tintindex" : 0
-        },
-        "up" : {
-          "uv" : [
-            2,
-            2,
-            14,
-            14
-          ],
-          "texture" : "#6",
-          "tintindex" : 0
-        },
-        "down" : {
-          "uv" : [
-            2,
-            2,
-            14,
-            14
-          ],
-          "texture" : "#7",
-          "tintindex" : 0
-        }
-      }
     }
   ],
   "groups" : [
@@ -362,18 +335,7 @@
         0,
         1,
         2,
-        3
-      ]
-    },
-    {
-      "name" : "contents",
-      "origin" : [
-        8,
-        8,
-        8
-      ],
-      "color" : 0,
-      "children" : [
+        3,
         4
       ]
     }
