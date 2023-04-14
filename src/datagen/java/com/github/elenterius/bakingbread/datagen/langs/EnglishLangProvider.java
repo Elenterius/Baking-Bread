@@ -46,8 +46,8 @@ public class EnglishLangProvider extends LanguageProvider {
 		addItem(ModItems.BATON_DOUGH_SHAPE, "Baton Shaped Dough");
 		addItem(ModItems.ROLL_DOUGH_SHAPE, "Roll Shaped Dough");
 
-		addItem(ModItems.BREAD_OVAL, "Oval Bread");
-		addItem(ModItems.BREAD_BATON, "Baton Bread");
+		addItem(ModItems.OVAL_BREAD, "Oval Bread");
+		addItem(ModItems.BATON_BREAD, "Baton Bread");
 		addItem(ModItems.BREAD_ROLL, "Bread Roll");
 	}
 

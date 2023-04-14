@@ -1,8 +1,9 @@
 package com.github.elenterius.bakingbread.init;
 
 import com.github.elenterius.bakingbread.BakingBreadMod;
-import com.github.elenterius.bakingbread.recipe.BakeryRecipes;
-import com.github.elenterius.bakingbread.recipe.DoughRecipe;
+import com.github.elenterius.bakingbread.recipe.DoughBakingRecipe;
+import com.github.elenterius.bakingbread.recipe.DoughMixingRecipe;
+import com.github.elenterius.bakingbread.recipe.DoughMouldingRecipe;
 import com.github.elenterius.bakingbread.recipe.NBTCookingSerializer;
 import com.github.elenterius.bakingbread.recipe.NBTShapedSerializer;
 import java.util.function.Supplier;
@@ -17,12 +18,12 @@ public final class ModRecipeSerializers {
 
 	public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, BakingBreadMod.MOD_ID);
 
-	public static final RegistryObject<SimpleRecipeSerializer<DoughRecipe>> DOUGH = register("crafting_special_dough", () -> new SimpleRecipeSerializer<>(DoughRecipe::new));
-	public static final RegistryObject<NBTShapedSerializer<BakeryRecipes.DoughKneading>> SHAPED_DOUGH = register("crafting_special_shaped_dough",
-		() -> new NBTShapedSerializer<>(BakeryRecipes.DoughKneading::new));
+	public static final RegistryObject<SimpleRecipeSerializer<DoughMixingRecipe>> DOUGH_MIXING = register("crafting_special_dough_mixing", () -> new SimpleRecipeSerializer<>(DoughMixingRecipe::new));
+	public static final RegistryObject<NBTShapedSerializer<DoughMouldingRecipe>> DOUGH_MOULDING = register("crafting_special_dough_moulding",
+		() -> new NBTShapedSerializer<>(DoughMouldingRecipe::new));
 
-	public static final RegistryObject<NBTCookingSerializer<BakeryRecipes.BreadBaking>> BREAD_BAKING = register("baking_special_bread",
-		() -> new NBTCookingSerializer<>(BakeryRecipes.BreadBaking::new, 1000));
+	public static final RegistryObject<NBTCookingSerializer<DoughBakingRecipe>> DOUGH_BAKING = register("cooking_special_dough_baking",
+		() -> new NBTCookingSerializer<>(DoughBakingRecipe::new, 100));
 
 	private ModRecipeSerializers() {
 	}

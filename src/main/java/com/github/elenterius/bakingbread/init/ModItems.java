@@ -44,8 +44,8 @@ public final class ModItems {
 	public static final RegistryObject<DoughItem> BATON_DOUGH_SHAPE = registerItem("baton_dough_shape", DoughItem::new);
 	public static final RegistryObject<DoughItem> ROLL_DOUGH_SHAPE = registerItem("roll_dough_shape", DoughItem::new);
 
-	public static final RegistryObject<BreadItem> BREAD_OVAL = registerItem("bread_oval", props -> new BreadItem(props.food(ModFoods.OVAL_BREAD)));
-	public static final RegistryObject<BreadItem> BREAD_BATON = registerItem("bread_baton", props -> new BreadItem(props.food(ModFoods.BATON_BREAD)));
+	public static final RegistryObject<BreadItem> OVAL_BREAD = registerItem("bread_oval", props -> new BreadItem(props.food(ModFoods.OVAL_BREAD)));
+	public static final RegistryObject<BreadItem> BATON_BREAD = registerItem("bread_baton", props -> new BreadItem(props.food(ModFoods.BATON_BREAD)));
 	public static final RegistryObject<BreadItem> BREAD_ROLL = registerItem("bread_roll", props -> new BreadItem(props.food(ModFoods.ROLL)));
 
 	public static final RegistryObject<BlockItem> GLASS_JAR = registerBlockItem(ModBlocks.GLASS_JAR);

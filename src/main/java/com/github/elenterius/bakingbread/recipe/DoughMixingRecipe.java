@@ -16,9 +16,9 @@ import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 
-public class DoughRecipe extends CustomRecipe {
+public class DoughMixingRecipe extends CustomRecipe {
 
-	public DoughRecipe(ResourceLocation id) {
+	public DoughMixingRecipe(ResourceLocation id) {
 		super(id);
 	}
 
@@ -89,7 +89,7 @@ public class DoughRecipe extends CustomRecipe {
 
 	@Override
 	public RecipeSerializer<?> getSerializer() {
-		return ModRecipeSerializers.DOUGH.get();
+		return ModRecipeSerializers.DOUGH_MIXING.get();
 	}
 
 }
